@@ -8,13 +8,15 @@ namespace SportsHub.Domain.Entities
     public class SportEvent
     {
         public Guid Id { get; set; }
-        public string Name { get; set; } = string.Empty;
+        public Guid? VenueId { get; set; }
+        public Venues? Venue { get; set; } = null!;
         public Guid SportId { get; set; }
-        public Sport Sport { get; set; } = null!;
-        public DateTime StartTime { get; set; }
+        public Sports Sport { get; set; } = null!;
+        public string Name { get; set; } = string.Empty;
+        public DateTime StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public EventStatus Status { get; set; } = EventStatus.Scheduled;
-        public ICollection<EventParticipant> Participants { get; set; } = new List<EventParticipant>();
-        public EventResult? Result { get; set; }
-
+        public string? Description { get; set; } = string.Empty;
+        public FootballMatches? FootballMatch { get; set; }
     }
 }
